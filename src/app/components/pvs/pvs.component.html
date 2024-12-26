@@ -1,0 +1,121 @@
+<section class="intro">
+  <span class="text mr-5"> جميع المحاضر</span>
+  <div class="gradient-custom-1 h-100">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="table-responsive bg-white" style="margin-bottom: 30px;">
+              <div class="card">
+                <table class="table table-responsive mb-0">
+
+                  <thead class="card-header cardHeader">
+                    <tr class="" style="height: 40px; line-height: 40px;">
+                      
+                      <th scope="col">رقم المحضر</th>
+                      <th scope="col ">ضد شخص مجهول </th>
+                      <th scope="col">تاريخ المحضر</th>
+                      <th scope="col">ساعة الانجاز</th>
+                      <th scope="col">رقم الارسالية</th>
+                      <th scope="col">نوع المحضر </th>
+                      <th scope="col"> <input type="search" [(ngModel)]="term" name="" id="" class="form-control"
+                          placeholder="ابحث عن..." >
+                      </th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let pv of pvs| filter:term | paginate: { itemsPerPage: 9, currentPage: pages }">
+                      <th scope="row" style="color: #666666;">{{pv.id}}</th>
+                      <td *ngIf="!pv.contreInnconue">
+                        لا
+                      </td>
+                      <td *ngIf="pv.contreInnconue">
+                        نعم
+                      </td>
+                      <td>{{pv.datePvs | date}}</td>
+                      <td>{{pv.heureRealisation}}</td>
+                      <td>{{pv.numEnvoi}}</td>
+                      <td>{{pv?.sourcePvs?.nom}}</td>
+                      <td>
+                        <!-- modal start -->
+                        <div class="modal fade" id="exampleModalToggle{{pv.id}}" aria-hidden="true" role="dialog"
+                          aria-labelledby="exampleModalToggleLabel">
+                          <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                            <div class="modal-content  col-md-3">
+                              <div class="modal-header card-header cardHeader" style="height:45px ;">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                  style="left:0;"></button>
+                                <span class="text mr-5"> تأكيد</span>
+                              </div>
+                              <div class="modal-body" style="text-align: center;">
+                                <h4 style="font-size: 15px;margin-bottom: 20px;">تأكيد الحذف</h4>
+                                <div class="mx-auto align-items-center">
+                                  <a (click)="deleteDataPv(pv?.id)" class="btn buttn mx-2 yes" data-bs-dismiss="modal"
+                                    aria-label="Close"><i class="fa fa-check ms-1" style="color:#fff;"></i></a>
+                                  <a class="btn buttn mx-2 no" data-bs-dismiss="modal" aria-label="Close"><i
+                                      class="fa fa-xmark ms-1" style="color:#fff;"></i>
+                                  </a>
+
+                                </div>
+
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <a class=" buttn" data-bs-toggle="modal" href="#exampleModalToggle{{pv.id}}" role="button"><i
+                            class="fa fa-trash ms-1" style="color:#428bca;"></i> </a>
+
+
+                        <!-- modal end -->
+
+
+
+                        <!-- modal start -->
+                        <a class=" buttn " data-bs-toggle="modal" href="#exampleModalToggle2{{pv.id}}"
+                          role="button"><i class="fa fa-edit ms-1" style=" color: #428bca;"></i></a>
+                        <div class="modal fade " id="exampleModalToggle2{{pv.id}}" aria-hidden="true"
+                          aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                          <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                  style="left:0;"></button>
+
+                              </div>
+                              <div class="modal-body ">
+                                <app-add-pv [pvId]="pv.id" [updateClicked]="true"
+                                  (outputFromUpdate)="receiveData($event)"></app-add-pv>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+                        <!-- modal end -->
+                        <a class=" buttn" [routerLink]="['/home/pvDetails/',pv.id]"><i class="fa-sharp fa-solid fa-eye" style=" color: #428bca;"></i></a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
+            </div>
+
+            <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>

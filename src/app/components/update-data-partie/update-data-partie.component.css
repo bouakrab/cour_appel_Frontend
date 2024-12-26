@@ -1,0 +1,12 @@
+.butt{
+    background-color: #428bca;
+    border:none;
+    width: 110px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.form-control, .form-select{
+    height: 30px;
+   
+}

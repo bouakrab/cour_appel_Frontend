@@ -1,0 +1,18 @@
+.nav{
+    background: #eef6fe;
+    border-bottom: 1.2px solid  #428bca;
+    height: 100px;
+}
+.textLogo{
+    font-size: 15px;
+    color:#898989 ;
+}
+ul li a{
+    font-size: 14px;
+     color:#428bca;
+}
+.gavel{
+    color:#428bca;
+    margin-left: 10px;
+    
+}

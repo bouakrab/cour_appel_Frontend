@@ -1,0 +1,30 @@
+*{
+    font-size: 13px;
+    font-family: ‘Thabit’, serif;
+}
+
+.cardHeader{
+    background: #eef6fe;
+    color: #428bca;
+}
+
+.cardHeader, .card{
+    border-color: #bedefa;
+}
+.form-control, .form-select{
+    height: 30px;
+   
+}
+
+.text{
+    color: gray;
+} 
+
+.butt{
+    background-color: #428bca;
+    border:none;
+    width: 110px;
+    text-align: center;
+    margin-left: 10px;
+}
+

@@ -1,0 +1,28 @@
+.carousel-item {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.carousel-caption h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.carousel-caption p {
+  font-size: 14px;
+}   

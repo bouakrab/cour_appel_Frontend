@@ -1,0 +1,33 @@
+.cardHeader{
+    background: #eef6fe;
+    color: #428bca;
+}
+.butt{
+    background-color: #428bca;
+    border:none;
+    width: 90px;
+    text-align: center;
+}
+
+.text{
+    color: gray;
+} 
+
+ 
+
+
+.form-control, .form-select{
+    height: 30px;
+    background-color: white;
+   
+}
+.butt{
+    background-color: #428bca;
+    border:none;
+    width: 110px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+
+

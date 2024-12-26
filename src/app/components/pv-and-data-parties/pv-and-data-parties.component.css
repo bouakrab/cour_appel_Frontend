@@ -1,0 +1,22 @@
+.cardHeader{
+    background: #eef6fe;
+    color: #428bca;
+}
+.butt{
+    background-color: #428bca;
+    border:none;
+    width: 90px;
+    text-align: center;
+   
+}
+
+table{
+    border-color: #e3f1ff;
+    border-top: rgb(255, 255, 255);
+    
+}
+
+.form-control, .form-select{
+    height: 30px;
+   
+}

@@ -1,0 +1,32 @@
+*{
+    font-size: 13px;
+}
+html,
+body,
+.intro {
+  height: 100%;
+
+}
+
+.intro{
+    border-radius: 20px;
+}
+
+.cardHeader{
+  background: #eef6fe;
+  color: #428bca;
+}
+
+.text{
+    color: gray;
+} 
+
+.yes, .no{
+  background-color: #428bca;
+  color: #eef6fe;
+}
+.buttn i{
+  font-size: 15px;
+  margin-right: 10px;
+}
+

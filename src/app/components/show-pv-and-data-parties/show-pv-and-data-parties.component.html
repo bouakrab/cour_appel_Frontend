@@ -1,0 +1,101 @@
+<div class="card mt-2">
+    <div class="card-header cardHeader">
+      المرجع
+    </div>
+  
+    <div class="card-body">
+  
+      <form class="form-inline row">
+  
+     
+  
+        <div class="form-group col-md-3">
+          <label class="mb-2">نوع المحضر</label>
+          
+          <input [value]="newPv.sourcePvs?.nom" name="numEnvoi" type="text" class="form-control form-control-sm" disabled >
+
+        </div>
+  
+  
+        <div class="form-group col-md-3">
+          <label class="mb-2">صنف الضابطة القضائية</label>
+
+          <input [value]="newPv.typePoliceJudic?.nom" name="numEnvoi" type="text" class="form-control form-control-sm" disabled>
+        </div>
+  
+        <div class="form-group col-md-3">
+          <label class="mb-2">رقم محضر الضابطة القضائية</label>
+          
+          <input [value]="newPv.typeSourcePvs?.nom" name="numEnvoi" type="text" class="form-control form-control-sm" disabled>
+        </div>
+  
+  
+        <div class="form-group col-md-3">
+          <label class="mb-2">رقم الارسالية</label>
+          <input [(ngModel)]="newPv.numEnvoi" name="numEnvoi" type="number" class="form-control form-control-sm" disabled>
+        </div>
+  
+        <div class="form-group col-md-3">
+          <label class="mb-2">تاريخ المحضر</label>
+          <input [(ngModel)]="newPv.datePvs" name="datePvs" type="date" class="form-control form-control-sm" disabled>
+        </div>
+  
+        <div class="form-group col-md-3">
+          <label class="mb-2"> ساعة الانجاز </label>
+          <input [(ngModel)]="newPv.heureRealisation" name="heureRealisation" type="time" class="form-control form-control-sm" disabled>
+        </div>
+        <div class="form-group col-md-3">
+          <label class="mb-2">موضوع المحضر</label>
+          <input [(ngModel)]="newPv.subjectPv" name="subjectPv" type="text" class="form-control form-control-sm" disabled>
+        </div>
+         
+        <div class="form-group col-md-3">
+          <label class="mb-2">
+           اضافة المرفقات
+           </label>
+          <input class="form-control form-control-sm" type="file"  disabled/>
+     
+     </div>
+       
+        <div class="mt-3">
+          <input class="form-check-input ms-3" [(ngModel)]="newPv.contreInnconue" name="contreInnconue" type="checkbox"
+            id="flexCheckDefault" disabled>
+          <label class="form-check-label" for="flexCheckDefault">
+            ضد شخص مجهول
+          </label>
+  
+  
+        </div>
+  
+      </form>
+
+
+      <div class="card-body" style="padding: 0;">
+        <table class="table table-bordered ">
+          <thead>
+            <tr>
+              <th scope="col">اسم الطرف</th>
+              <th scope="col">نسبه</th>
+              <th scope="col">نوعه</th>
+              <th scope="col">رقم بطاقة التعريف</th>
+              <th scope="col">تعديل</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let dataPartie of dataParties">
+              <td>{{dataPartie?.id}}</td>
+              <td>{{dataPartie?.nom}}</td>
+              <td>{{dataPartie?.genre}}</td>
+              <td>{{dataPartie?.numCart}}</td>
+              <td>
+                          
+               
+              </td>
+    
+             
+            </tr>
+    
+          </tbody>
+        </table>
+      </div>
+    </div>

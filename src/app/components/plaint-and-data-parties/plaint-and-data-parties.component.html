@@ -1,0 +1,169 @@
+<!-- Plaint -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+    </symbol>
+    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+    </symbol>
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+    </symbol>
+  </svg>
+  
+  
+  <div *ngIf="addedSucess" class="alert alert-success d-flex align-items-center" role="alert" style="height:45px;">
+    <svg class="bi flex-shrink-0 mx-2" width="24" height="24" role="img" aria-label="Success:">
+      <use xlink:href="#check-circle-fill" />
+    </svg>
+    <div>
+      <h3>
+        تمت العملية بنجاح
+      </h3>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="containerStep">
+      <ul class="progressbar">
+        <li class="active">اضافة الشكاية</li>
+        
+        <li>اضافة الأطراف</li>
+        <li >انهاء العملية</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card mt-4">
+    <div class="card-header cardHeader">
+      المرجع
+    </div>
+  
+    <div class="card-body">
+  
+      <form class="form-inline row">
+        <div class="form-group col-md-3">
+          <label class="mb-2">مصدر الشكاية</label>
+          <select [(ngModel)]="newPlaint.sourcePlaints" name="sourcePvs" class="form-select form-select-sm" aria-label="Default select example">
+  
+            <option selected></option>
+            <option *ngFor="let sourcePv of sourcePlaints" [ngValue]="sourcePv">{{sourcePv.nom}}</option>
+  
+          </select>
+        </div>
+  
+  
+        <div class="form-group col-md-3">
+          <label class="mb-2">صنف الشكاية</label>
+          <select [(ngModel)]="newPlaint.typePlaints" name="typePoliceJudic" class="form-select form-select-sm"
+            aria-label="Default select example">
+            <option selected></option>
+            <option *ngFor="let typePoliceJudic of typePlaints" [ngValue]="typePoliceJudic">{{typePoliceJudic.nom}}
+            </option>
+  
+          </select>
+        </div>
+  
+
+  
+  
+   
+  
+        <div class="form-group col-md-3">
+          <label class="mb-2">تاريخ الشكاية</label>
+          <input [(ngModel)]="newPlaint.datePlaints" name="datePvs" type="date" class="form-control form-control-sm">
+        </div>
+  
+  
+        <div class="form-group col-md-3">
+          <label class="mb-2">موضوع الشكاية</label>
+          <input [(ngModel)]="newPlaint.sujetPlaints" name="subjectPv" type="text" class="form-control form-control-sm">
+        </div>
+  
+  
+        <div class="mt-3">
+          <input class="form-check-input ms-3" [(ngModel)]="newPlaint.contreInconnu" name="contreInnconue" type="checkbox"
+            id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            ضد شخص مجهول
+          </label>
+  
+  
+        </div>
+  
+      </form>
+  
+    </div>
+  
+  </div>
+
+<!-- End Plaint -->
+  
+  <!-- Data parties -->
+  <div class="card mt-3">
+    <div class="card-header cardHeader">
+      اطراف المحضر
+  
+    </div>
+  
+    <div class="card-body" style="padding: 0;">
+      <table class="table table-bordered ">
+        <thead>
+          <tr>
+            <th scope="col">اسم الطرف</th>
+            <th scope="col">نسبه</th>
+            <th scope="col">نوعه</th>
+            <th scope="col">رقم بطاقة التعريف</th>
+            <th scope="col">تعديل</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dataPartie of dataParties">
+            <td>{{dataPartie?.id}}</td>
+            <td>{{dataPartie?.nom}}</td>
+            <td>{{dataPartie?.genre}}</td>
+            <td>{{dataPartie?.numCart}}</td>
+            <td>
+                        
+              <!-- modal start -->
+              <div class="modal fade " id="exampleModalToggle{{dataPartie?.numCart}}" aria-hidden="true"
+                aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header card-header cardHeader" style="height:45px ;">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        style="left:0;"></button>
+                      <span class="text mr-5">اطراف المحضر</span>
+                    </div>
+                    <div class="modal-body ">
+                      <app-update-data-partie [cin]="dataPartie?.numCart" (outputFromUpdate)="receiveData($event)" ></app-update-data-partie>
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+                  
+              <a class="btn buttn" data-bs-toggle="modal"
+                href="#exampleModalToggle{{dataPartie?.numCart}}" role="button"><i class="fa fa-edit ms-1" style=" color: #428bca;"></i></a>
+              <a 
+              (click)="deleteDataPartie(dataPartie?.id)"
+              class="btn buttn mx-2" role="button"><i class="fa fa-trash ms-1"
+                  style="color:#428bca;"></i></a>
+  
+              <!-- modal end -->
+            </td>
+  
+           
+          </tr>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+  <!-- End Data parties-->
+  <input (click)="addPvToDp()" value="حفظ" class="btn btn-primary mt-3 mb-5 butt">
+  <input value="الغاء" class="btn btn-primary mt-3 mb-5 butt mx-3">

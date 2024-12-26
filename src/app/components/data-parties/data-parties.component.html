@@ -1,0 +1,72 @@
+<div>
+
+  <div class="row">
+    <div class="containerStep">
+      <ul class="progressbar">
+        <li class="active">اضافة المحضر</li>
+
+        <li class="active">اضافة الأطراف</li>
+        <li>انهاء العملية</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card mt-3">
+    <div class="card-header cardHeader">
+      اطراف المحضر
+      <!--
+            <a class="btn buttn"  routerLink="/addparties"> <i class="fa fa-plus ms-1 add"></i>طرف جديد</a>
+          -->
+      <!-- modal start -->
+      <div class="modal fade " id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header card-header cardHeader" style="height:45px ;">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                style="left:0;"></button>
+              <span class="text mr-5">اطراف المحضر</span>
+            </div>
+            <div class="modal-body ">
+              <app-add-data-partie></app-add-data-partie>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <a class="btn buttn" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><i
+          class="fa fa-plus ms-1 add"></i>طرف جديد</a>
+
+
+      <!-- modal end -->
+    </div>
+
+    <div class="card-body" style="padding: 0;">
+      <table class="table table-bordered " style="width: 100%;margin: 0;">
+        <thead>
+          <tr>
+
+            <th scope="col">اسم الطرف</th>
+            <th scope="col">نسبه</th>
+            <th scope="col">نوعه</th>
+            <th scope="col">رقم بطاقة التعريف</th>
+            <th scope="col">تعديل</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dataPartie of localDataParties">
+
+            <td>{{dataPartie?.prenom}}</td>
+            <td>{{dataPartie?.nom}}</td>
+            <td>{{dataPartie?.genre}}</td>
+            <td>{{dataPartie?.numCart}}</td>
+            <td>Delete</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<input (click)="addDataPartiesList()" value="التالي" class="btn btn-primary mt-3 mb-5 butt">
+<input (click)="goBack()" value="الرجوع" class="btn btn-primary mt-3 mb-5 butt mx-3">

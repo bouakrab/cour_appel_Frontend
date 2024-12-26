@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    direction: rtl;
+    font-family: ‘Thabit’, serif;
+}
+body{
+    background-color: #fafafa;
+}
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* step bar style*/
+
+.containerStep {
+    width: 1600px;
+   margin-right: -60px;
+   margin-top: 20px;
+}
+.progressbar {
+    counter-reset: step;
+    width: 100%;
+    margin-right: -60px;
+}
+.progressbar li {
+    list-style-type: none;
+    width: 25%;
+    float: right;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color:  #b7d0ec;
+}
+.progressbar li:before {
+    width: 30px;
+    height: 30px;
+    content: counter(step);
+    counter-increment: step;
+    line-height: 30px;
+    border: 2px solid  #b7d0ec;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+}
+.progressbar li:after {
+    width: 100%;
+    height: 2px;
+    content: '';
+    position: absolute;
+    background-color: #b7d0ec;
+    top: 15px;
+    left: 50%;
+    z-index: -1;
+}
+.progressbar li:first-child:after {
+    content: none;
+}
+.progressbar li.active {
+    color: #428bca;
+}
+.progressbar li.active:before {
+    border-color: #428bca;
+}
+.progressbar li.active + li:after {
+    background-color:#428bca;
+}
+
+/*  End step bar style*/

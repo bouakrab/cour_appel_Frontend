@@ -1,0 +1,30 @@
+.cardHeader{
+    background: #eef6fe;
+    color: #428bca;
+}
+
+.add{
+    font-weight: bold;
+} 
+
+.buttn{
+    color: white;
+    background-color: #428bca;
+    border:none;
+    height: 25px;
+    font-size: 11px;
+    float: left;
+    
+} 
+
+.butt{
+    background-color: #428bca;
+    border:none;
+    width: 90px;
+    text-align: center;
+}
+table{
+    border-color: #e3f1ff;
+    border-top: rgb(255, 255, 255);
+    
+}
